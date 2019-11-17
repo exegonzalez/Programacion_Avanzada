@@ -13,13 +13,27 @@ class App extends Component {
     estado: false
   }
 
-  cotizar= async (moneda='BTC') =>{
-    const url = `https://min-api.cryptocompare.com/data/top/totaltoptiervolfull?limit=10&tsym=${moneda}`
+  cotizar= async (criptomoneda='BTC',moneda='USD') =>{
+    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`
+    
+    this.setState ({
+      estado : true
+    })
+
     const resp = await fetch (url);
-    const monedas = await resp.json();
+    const respuesta = await resp.json();
+    
+    this.setState ({
+      estado: false
+    })
+
+    const res = respuesta.DISPLAY[criptomoneda]
+    console.log(res)
+    const res2 = res[moneda]
+    console.log(res2)
 
     this.setState ({
-      monedas : monedas.data
+      monedas : res2
     })
   }  
   
@@ -36,7 +50,6 @@ class App extends Component {
   // Mostrar Spinner o resultado
 
   render(){
-    const {estado} = this.state.estado;
     return (
     <div className="container">
         <div className="row">
@@ -47,7 +60,7 @@ class App extends Component {
                 <h1>Cotiza Criptomonedas al Instante</h1>
                 <Formulario cotizar={this.cotizar}/>
            </div>
-           {estado ? <Spinner /> : <Cotizacion resultado={this.state.monedas} />}
+           {(this.state.estado) ? <Spinner /> : <Cotizacion resultado={this.state.monedas} />}
         </div>
     </div>
   );

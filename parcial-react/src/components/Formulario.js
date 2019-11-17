@@ -1,44 +1,49 @@
 import React, {Component} from 'react';
 
-import Criptomoneda from './Criptomoneda';
 import Error from './Error';
 
 class Formulario extends Component {
     state={
         moneda:"",
-        error: false
+        criptomoneda:"",
+        error: true
     }
-
+    
     // Validar que el usuario llene ambos campos
     cotizarMoneda = e => {
         e.preventDefault();
-        this.setState({
-            moneda: e.target.value
-        }, ()=>{
-            this.props.cotizar(this.state.moneda)
-        })
-    
+
+        console.log(this.state.moneda)
+        console.log(this.state.criptomoneda)
+        
+        if(this.state.moneda==="" || this.state.criptomoneda===""){
+            this.setState({
+                error: true
+                })
+           }
+
         // validar si ambos campos estan llenos
-       if(this.state.moneda===""){
+       if(this.state.moneda!=="" && this.state.criptomoneda!==""){
         this.setState({
-            error: true
+            error: false
             })
+        this.props.cotizar(this.state.criptomoneda,this.state.moneda)      
        }
 
         // pasar los datos al componente principal
-       
     }
 
     // Mostrar el error en caso de que exista
     render(){
-    const {error} = this.state.error;
     return (
-        <form>
-            {error ? <Error mensaje="Ambos campos son obligatorios" /> : null}
+        <form onSubmit = {this.cotizarMoneda}>
+            {(this.state.error) ? <Error mensaje="Ambos campos son obligatorios" /> : null}
             <div className="row">
                 <label>Elige tu Moneda</label>
                 <select
-                    className="u-full-width" onChange={this.cotizarMoneda}
+                    className="u-full-width" onChange={e => this.setState({
+                        moneda: e.target.value,
+                    })}
                    
                 >
                     <option value="">- Elige tu Moneda -</option>
@@ -53,10 +58,14 @@ class Formulario extends Component {
                 <label>Elige tu Criptomoneda</label>
                 <select
                     className="u-full-width"
-                    onChange={this.cotizarMoneda}
+                    onChange={e => this.setState({
+                        criptomoneda: e.target.value
+                    })}
                 >
                     <option value="">- Elige tu Criptomoneda -</option>
                          <option value="BTC">Bitcoin</option>
+                         <option value="ETH">Ethereum</option>
+                         <option value="EOS">EOS</option>
                         />
                     ))}
 

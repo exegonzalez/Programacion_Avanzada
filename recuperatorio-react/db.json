@@ -1,0 +1,13 @@
+{
+  "tareas": [
+    {
+      "NombreDesarrollador": "asdas",
+      "ApellidoDesarrollador": "asdas",
+      "TipoDesarrollador": "asdas",
+      "Fecha": "2019-11-21",
+      "Hora": "05:34",
+      "EstadoTarea": "finalizada",
+      "id": 1
+    }
+  ]
+}

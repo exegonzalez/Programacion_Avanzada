@@ -1,0 +1,30 @@
+{
+  "locations": [
+    {
+      "location": {
+        "name": "Gualeguaychu, Argentina",
+        "latitude": "-33.020000",
+        "longitude": "-58.520000"
+      },
+      "weather": {
+        "temperature": 291.56,
+        "pressure": 1022,
+        "humidity": 28
+      },
+      "date": "2019-09-20T16:19:07.341Z"
+    },
+    {
+      "location": {
+        "name": "Concepcion del Uruguay, Argentina",
+        "latitude": "-32.580002",
+        "longitude": "-58.580002"
+      },
+      "weather": {
+        "temperature": 291.45,
+        "pressure": 1023,
+        "humidity": 23
+      },
+      "date": "2019-09-20T16:19:58.177Z"
+    }
+  ]
+}

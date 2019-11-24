@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina con Javascript</title>
+    <script languaje="javascript">
+        function Coche(marca, modelo, precio) {
+
+            this.marca = marca
+            this.modelo = modelo
+            this.precio = precio
+
+        }
+
+        function calcularIVA(precio) {
+            return precio + (precio / 100) * 21
+        }
+
+        var coche1 = new Coche('Renault', 'Laguna', 1800);
+        var coche2 = new Coche('Ford', 'Mondeo', 2300);
+        var coche3 = new Coche('Mercedes', '600', 8500);
+        var coche4 = new Coche('Seat', 'Cordoba', 3000);
+        var cadena;
+    </script>
+</head>
+
+<body>
+    <h1>Objetos en Javascript</h1>
+    <script>
+        cadena = `El coche ${coche1.marca} ${coche1.modelo} vale USD ${calcularIVA(coche1.precio)}`
+        document.write(`${cadena} <br>`)
+        cadena = `El coche ${coche1.marca} ${coche1.modelo} vale USD ${calcularIVA(coche2.precio)}`
+        document.write(`${cadena} <br>`)
+        cadena = `El coche ${coche1.marca} ${coche1.modelo} vale USD ${calcularIVA(coche3.precio)}`
+        document.write(`${cadena} <br>`)
+        cadena = `El coche ${coche1.marca} ${coche1.modelo} vale USD ${calcularIVA(coche4.precio)}`
+        document.write(`${cadena} <br>`)
+    </script>
+</body>
+
+</html>

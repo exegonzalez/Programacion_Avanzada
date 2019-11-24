@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Game Lord of the Rings //
+
+        function Player(nombre) {
+            this.name = nombre
+            this.pv = 100
+            this.sp = 100
+            this.cure = function(target_player) {
+                target_player.pv = target_player.pv + 40
+            }
+            this.state = function(target_player) {
+                return target_player.pv || `${target_player.name} you Lost!`
+            }
+            this.attack = function(target_player) {
+                target_player.pv = target_player.pv - 20
+            }
+        }
+
+        var Orc = new Player('Orc')
+        var Legolas = new Player('Legolas')
+
+
+
+        console.log(Orc)
+        console.log(Legolas)
+    </script>
+</body>
+
+</html>

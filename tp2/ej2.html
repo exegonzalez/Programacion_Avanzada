@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const API_URL = 'http://ws.audioscrobbler.com/2.0/'
+        const API_KEY = '9df879bb140e3769de0bd63a211e2d2b'
+        const GET_ARTISTS = `?method=chart.gettopartists&api_key=${API_KEY}&format=json`
+        const REQUEST_URL = `${API_URL}${GET_ARTISTS}`
+
+        $.get(REQUEST_URL, response => mostrarDatos(response))
+
+        function mostrarDatos(response) {
+
+            const TOP_10 = 10
+            artists = response.artists.artist
+
+            for (let i = 0; i < TOP_10; i++) {
+                const artist = artists[i];
+
+                console.log(`Puesto: ${i+1}:
+                    Artista: ${artist.name},
+                    Reproducciones: ${artist.playcount},
+                    Oyentes: ${artist.listeners}`);
+            }
+        }
+    </script>
+</body>
+
+</html>

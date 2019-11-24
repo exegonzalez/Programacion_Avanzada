@@ -1,0 +1,15 @@
+{
+  "tickets": [],
+<<<<<<< HEAD
+  "lastticket": 0,
+  "attendeds": []
+=======
+  "lastticket": 1,
+  "attendeds": [
+    {
+      "ticketnumber": 1,
+      "desknumber": "1"
+    }
+  ]
+>>>>>>> master
+}
